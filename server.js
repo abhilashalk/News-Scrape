@@ -33,7 +33,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://Localhost/newsscrapperdb");
+mongoose.connect("mongodb://localhost/newsscrapperdb");
 
 // Routes
 
@@ -87,6 +87,7 @@ app.get("/articles", function (req, res) {
             // If an error occurred, send it to the client
             res.json(err);
         });
+    res.render("/index");
 });
 
 // Route for grabbing a specific Article by id, populate it with it's note
